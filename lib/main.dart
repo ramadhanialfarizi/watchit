@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:movie_app/core/utils/routes.dart';
 import 'package:movie_app/features/authentication/view_model/signin_provider.dart';
 import 'package:movie_app/features/authentication/view_model/signup_provider.dart';
+import 'package:movie_app/features/home/view_model/movie/movie_provider.dart';
 import 'package:movie_app/firebase_options.dart';
 import 'package:provider/provider.dart';
 
@@ -20,6 +21,9 @@ void main() async {
         ),
         ChangeNotifierProvider(
           create: (context) => SignupProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => MovieProvider(),
         ),
       ],
       child: const MyApp(),
