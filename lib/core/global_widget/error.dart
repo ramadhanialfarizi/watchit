@@ -18,7 +18,7 @@ class ErrorData extends StatelessWidget {
             height: 26,
           ),
           const Text(
-            'Failed to get data :( please check your connection and reopen the app',
+            'Failed to get data :( please check your connection and reload the app',
             style: TextStyle(fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
           ),

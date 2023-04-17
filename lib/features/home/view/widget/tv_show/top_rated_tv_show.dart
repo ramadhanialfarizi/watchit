@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/features/home/model/tv_show/top_rated_model.dart';
 
-import 'package:movie_app/core/utils/env.dart';
-import 'package:movie_app/features/home/model/movie/top_rate_movie_model.dart';
+import '../../../../../core/utils/env.dart';
 
-class TopRateMovie extends StatefulWidget {
-  const TopRateMovie({super.key, this.topRateMovieModel});
+class TopRatedTvShow extends StatefulWidget {
+  const TopRatedTvShow({super.key, required this.topRatedTvShowModel});
 
-  final TopRateMovieModel? topRateMovieModel;
+  final TopRatedTvShowModel? topRatedTvShowModel;
 
   @override
-  State<TopRateMovie> createState() => _TopRateMovieState();
+  State<TopRatedTvShow> createState() => _TopRatedTvShowState();
 }
 
-class _TopRateMovieState extends State<TopRateMovie> {
+class _TopRatedTvShowState extends State<TopRatedTvShow> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -21,7 +21,7 @@ class _TopRateMovieState extends State<TopRateMovie> {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         shrinkWrap: true,
-        itemCount: widget.topRateMovieModel?.results.length,
+        itemCount: widget.topRatedTvShowModel!.results.length,
         itemBuilder: (context, index) {
           return InkWell(
             onTap: () {},
@@ -32,7 +32,7 @@ class _TopRateMovieState extends State<TopRateMovie> {
                 borderRadius: BorderRadius.circular(12),
                 image: DecorationImage(
                   image: NetworkImage(
-                      '${imageURl}${widget.topRateMovieModel?.results[index].posterPath}'),
+                      '${imageURl}${widget.topRatedTvShowModel!.results[index].posterPath}'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -40,8 +40,8 @@ class _TopRateMovieState extends State<TopRateMovie> {
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Text(
-                  '${widget.topRateMovieModel?.results[index].title}',
-                  style: TextStyle(
+                  '${widget.topRatedTvShowModel!.results[index].name}',
+                  style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),

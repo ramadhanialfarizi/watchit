@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/features/home/model/tv_show/on_the_air_model.dart';
 
-import 'package:movie_app/core/utils/env.dart';
-import 'package:movie_app/features/home/model/movie/top_rate_movie_model.dart';
+import '../../../../../core/utils/env.dart';
 
-class TopRateMovie extends StatefulWidget {
-  const TopRateMovie({super.key, this.topRateMovieModel});
+class OnTheAirTvShow extends StatefulWidget {
+  const OnTheAirTvShow({super.key, required this.onTheAirModel});
 
-  final TopRateMovieModel? topRateMovieModel;
+  final OnTheAirModel? onTheAirModel;
 
   @override
-  State<TopRateMovie> createState() => _TopRateMovieState();
+  State<OnTheAirTvShow> createState() => _OnTheAirTvShowState();
 }
 
-class _TopRateMovieState extends State<TopRateMovie> {
+class _OnTheAirTvShowState extends State<OnTheAirTvShow> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -21,7 +21,7 @@ class _TopRateMovieState extends State<TopRateMovie> {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         shrinkWrap: true,
-        itemCount: widget.topRateMovieModel?.results.length,
+        itemCount: widget.onTheAirModel!.results.length,
         itemBuilder: (context, index) {
           return InkWell(
             onTap: () {},
@@ -32,7 +32,7 @@ class _TopRateMovieState extends State<TopRateMovie> {
                 borderRadius: BorderRadius.circular(12),
                 image: DecorationImage(
                   image: NetworkImage(
-                      '${imageURl}${widget.topRateMovieModel?.results[index].posterPath}'),
+                      '${imageURl}${widget.onTheAirModel!.results[index].posterPath}'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -40,8 +40,8 @@ class _TopRateMovieState extends State<TopRateMovie> {
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Text(
-                  '${widget.topRateMovieModel?.results[index].title}',
-                  style: TextStyle(
+                  '${widget.onTheAirModel!.results[index].name}',
+                  style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),

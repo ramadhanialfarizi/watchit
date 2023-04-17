@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/features/home/model/movie/data_source/remote_data_source_impl.dart';
-import 'package:movie_app/features/home/model/movie/data_source/remote_data_source_repository.dart';
+import 'package:movie_app/features/home/model/movie/data_source/movie_data_source_impl.dart';
+
 import 'package:movie_app/features/home/model/movie/now_playing_movie_model.dart';
 import 'package:movie_app/features/home/model/movie/popular_movie_model.dart';
 import 'package:movie_app/features/home/model/movie/top_rate_movie_model.dart';
 import 'package:movie_app/features/home/model/movie/upcoming_movie_model.dart';
 
 import '../../../../core/utils/enum.dart';
+import '../../model/movie/data_source/movie_repository.dart';
 
 class MovieProvider extends ChangeNotifier {
   final RemoteDataSourceRepository _remoteDataSourceRepository =

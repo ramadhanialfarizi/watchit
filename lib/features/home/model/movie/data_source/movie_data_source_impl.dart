@@ -1,11 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:movie_app/core/utils/env.dart';
-import 'package:movie_app/features/home/model/movie/data_source/remote_data_source_repository.dart';
 import 'package:movie_app/features/home/model/movie/now_playing_movie_model.dart';
 import 'package:movie_app/features/home/model/movie/popular_movie_model.dart';
 import 'package:movie_app/features/home/model/movie/upcoming_movie_model.dart';
 
 import '../top_rate_movie_model.dart';
+import 'movie_repository.dart';
 
 class RemoteDataSourceImpl implements RemoteDataSourceRepository {
   @override

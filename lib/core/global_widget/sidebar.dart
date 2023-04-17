@@ -75,6 +75,24 @@ class _SidebarState extends State<Sidebar> {
               //Navigator.of(context).pushReplacementNamed('/favorite');
             },
           ),
+          ListTile(
+            leading: const Icon(
+              Icons.people_alt_outlined,
+              color: Color(0xFFF44E42),
+            ),
+            title: const Text(
+              'People',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 15,
+                //color: Color(0xFFF44E42),
+              ),
+            ),
+            onTap: () {
+              // Update the state of the app.
+              //Navigator.of(context).pushReplacementNamed('/favorite');
+            },
+          ),
           const SizedBox(
             height: 15,
           ),
