@@ -20,12 +20,10 @@ class TvShowDataSourceImpl implements TvShowRepository {
       );
 
       if (response.statusCode == 200) {
-        // print(response.data);
         var result = OnTheAirModel.fromJson(response.data);
 
         return result;
       } else {
-        // print('fail to load data, status code: ${response.statusCode}');
         throw Exception();
       }
     } catch (e) {
@@ -91,12 +89,12 @@ class TvShowDataSourceImpl implements TvShowRepository {
       );
 
       if (response.statusCode == 200) {
-        print(response.data);
+        // print(response.data);
         var result = PopularTvShowModel.fromJson(response.data);
 
         return result;
       } else {
-        print('fail to load data, status code: ${response.statusCode}');
+        // print('fail to load data, status code: ${response.statusCode}');
         throw Exception();
       }
     } catch (e) {

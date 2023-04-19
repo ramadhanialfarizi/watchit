@@ -4,6 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:movie_app/core/utils/routes.dart';
 import 'package:movie_app/features/authentication/view_model/signin_provider.dart';
 import 'package:movie_app/features/authentication/view_model/signup_provider.dart';
+import 'package:movie_app/features/detail/view_model/movie/detail_movie_provider.dart';
+import 'package:movie_app/features/detail/view_model/tv_show/detail_tv_show_provider.dart';
 import 'package:movie_app/features/home/view_model/movie/movie_provider.dart';
 import 'package:movie_app/features/home/view_model/tv_show/tv_show_provider.dart';
 import 'package:movie_app/firebase_options.dart';
@@ -28,6 +30,12 @@ void main() async {
         ),
         ChangeNotifierProvider(
           create: (context) => TvShowProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => DetailMovieProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => DetailTvShowProvider(),
         ),
       ],
       child: const MyApp(),

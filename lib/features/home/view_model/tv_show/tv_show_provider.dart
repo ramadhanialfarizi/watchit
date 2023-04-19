@@ -9,7 +9,7 @@ import 'package:movie_app/features/home/model/tv_show/top_rated_model.dart';
 import '../../../../core/utils/enum.dart';
 
 class TvShowProvider extends ChangeNotifier {
-  final TvShowRepository tvShowRepository = TvShowDataSourceImpl();
+  final TvShowRepository _tvShowRepository = TvShowDataSourceImpl();
 
   ResultState? state;
   OnTheAirModel? onTheAirModel;
@@ -20,7 +20,7 @@ class TvShowProvider extends ChangeNotifier {
   void getOnTheAirTvShow() async {
     try {
       state = ResultState.loading;
-      final source = await tvShowRepository.getOnTheAirTvShow();
+      final source = await _tvShowRepository.getOnTheAirTvShow();
       notifyListeners();
       if (source.results.isEmpty) {
         state = ResultState.noData;
@@ -39,7 +39,7 @@ class TvShowProvider extends ChangeNotifier {
   void getAiringTodayTvShow() async {
     try {
       state = ResultState.loading;
-      final source = await tvShowRepository.getAiringTodayTvShow();
+      final source = await _tvShowRepository.getAiringTodayTvShow();
       notifyListeners();
       if (source.results.isEmpty) {
         state = ResultState.noData;
@@ -58,7 +58,7 @@ class TvShowProvider extends ChangeNotifier {
   void getTopRatedTvShow() async {
     try {
       state = ResultState.loading;
-      final source = await tvShowRepository.getTopRatedTvShow();
+      final source = await _tvShowRepository.getTopRatedTvShow();
       notifyListeners();
       if (source.results.isEmpty) {
         state = ResultState.noData;
@@ -77,7 +77,7 @@ class TvShowProvider extends ChangeNotifier {
   void getPopularTvShow() async {
     try {
       state = ResultState.loading;
-      final source = await tvShowRepository.getPopularTvShow();
+      final source = await _tvShowRepository.getPopularTvShow();
       notifyListeners();
       if (source.results.isEmpty) {
         state = ResultState.noData;

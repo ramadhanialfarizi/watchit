@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/core/utils/env.dart';
 import 'package:movie_app/features/home/model/movie/top_rate_movie_model.dart';
 
+import '../../../../detail/view/detail_movie_page.dart';
+
 class TopRateMovie extends StatefulWidget {
   const TopRateMovie({super.key, this.topRateMovieModel});
 
@@ -24,7 +26,14 @@ class _TopRateMovieState extends State<TopRateMovie> {
         itemCount: widget.topRateMovieModel?.results.length,
         itemBuilder: (context, index) {
           return InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => DetailMoviePage(
+                        movieId: widget.topRateMovieModel?.results[index].id)),
+              );
+            },
             child: Container(
               margin: const EdgeInsets.only(right: 12),
               width: 150,

@@ -40,7 +40,7 @@ class Result {
     required this.originalName,
     required this.overview,
     required this.popularity,
-    this.posterPath,
+    required this.posterPath,
     required this.voteAverage,
     required this.voteCount,
   });
@@ -51,11 +51,11 @@ class Result {
   int id;
   String name;
   List<String> originCountry;
-  OriginalLanguage originalLanguage;
+  String originalLanguage;
   String originalName;
   String overview;
   double popularity;
-  String? posterPath;
+  String posterPath;
   double voteAverage;
   int voteCount;
 
@@ -66,8 +66,7 @@ class Result {
         id: json["id"],
         name: json["name"],
         originCountry: List<String>.from(json["origin_country"].map((x) => x)),
-        originalLanguage:
-            originalLanguageValues.map[json["original_language"]]!,
+        originalLanguage: json["original_language"],
         originalName: json["original_name"],
         overview: json["overview"],
         popularity: json["popularity"]?.toDouble(),
@@ -84,7 +83,7 @@ class Result {
         "id": id,
         "name": name,
         "origin_country": List<dynamic>.from(originCountry.map((x) => x)),
-        "original_language": originalLanguageValues.reverse[originalLanguage],
+        "original_language": originalLanguage,
         "original_name": originalName,
         "overview": overview,
         "popularity": popularity,
@@ -92,25 +91,4 @@ class Result {
         "vote_average": voteAverage,
         "vote_count": voteCount,
       };
-}
-
-enum OriginalLanguage { AR, MS, HI, PT }
-
-final originalLanguageValues = EnumValues({
-  "ar": OriginalLanguage.AR,
-  "hi": OriginalLanguage.HI,
-  "ms": OriginalLanguage.MS,
-  "pt": OriginalLanguage.PT
-});
-
-class EnumValues<T> {
-  Map<String, T> map;
-  late Map<T, String> reverseMap;
-
-  EnumValues(this.map);
-
-  Map<T, String> get reverse {
-    reverseMap = map.map((k, v) => MapEntry(v, k));
-    return reverseMap;
-  }
 }

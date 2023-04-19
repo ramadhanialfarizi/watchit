@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/features/home/model/movie/popular_movie_model.dart';
 
 import '../../../../../core/utils/env.dart';
+import '../../../../detail/view/detail_movie_page.dart';
 
 class PopularMovie extends StatefulWidget {
   const PopularMovie({super.key, this.popularMovieModel});
@@ -24,7 +25,14 @@ class _PopularMovieState extends State<PopularMovie> {
         itemCount: widget.popularMovieModel?.results.length,
         itemBuilder: (context, index) {
           return InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => DetailMoviePage(
+                        movieId: widget.popularMovieModel?.results[index].id)),
+              );
+            },
             child: Container(
               margin: const EdgeInsets.only(right: 12),
               width: 150,

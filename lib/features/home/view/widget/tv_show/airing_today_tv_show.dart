@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/features/detail/view/detail_tv_show_page.dart';
 import 'package:movie_app/features/home/model/tv_show/airing_today_model.dart';
 
 import '../../../../../core/utils/env.dart';
@@ -21,10 +22,16 @@ class _AiringTodayTvShowState extends State<AiringTodayTvShow> {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         shrinkWrap: true,
-        itemCount: widget.airingTodayModel!.results.length,
+        itemCount: widget.airingTodayModel?.results.length,
         itemBuilder: (context, index) {
           return InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => DetailTvShowPage(
+                          tvId: widget.airingTodayModel?.results[index].id)));
+            },
             child: Container(
               margin: const EdgeInsets.only(right: 12),
               width: 150,
@@ -32,7 +39,7 @@ class _AiringTodayTvShowState extends State<AiringTodayTvShow> {
                 borderRadius: BorderRadius.circular(12),
                 image: DecorationImage(
                   image: NetworkImage(
-                      '$imageURl${widget.airingTodayModel!.results[index].posterPath}'),
+                      '$imageURl${widget.airingTodayModel?.results[index].posterPath}'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -40,7 +47,7 @@ class _AiringTodayTvShowState extends State<AiringTodayTvShow> {
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Text(
-                  '${widget.airingTodayModel!.results[index].name}',
+                  '${widget.airingTodayModel?.results[index].name}',
                   style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,

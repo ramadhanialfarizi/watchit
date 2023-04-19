@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/features/home/model/tv_show/on_the_air_model.dart';
 
 import '../../../../../core/utils/env.dart';
+import '../../../../detail/view/detail_tv_show_page.dart';
 
 class OnTheAirTvShow extends StatefulWidget {
   const OnTheAirTvShow({super.key, required this.onTheAirModel});
@@ -21,10 +22,16 @@ class _OnTheAirTvShowState extends State<OnTheAirTvShow> {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         shrinkWrap: true,
-        itemCount: widget.onTheAirModel!.results.length,
+        itemCount: widget.onTheAirModel?.results.length,
         itemBuilder: (context, index) {
           return InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => DetailTvShowPage(
+                          tvId: widget.onTheAirModel?.results[index].id)));
+            },
             child: Container(
               margin: const EdgeInsets.only(right: 12),
               width: 150,
@@ -32,7 +39,7 @@ class _OnTheAirTvShowState extends State<OnTheAirTvShow> {
                 borderRadius: BorderRadius.circular(12),
                 image: DecorationImage(
                   image: NetworkImage(
-                      '${imageURl}${widget.onTheAirModel!.results[index].posterPath}'),
+                      '${imageURl}${widget.onTheAirModel?.results[index].posterPath}'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -40,7 +47,7 @@ class _OnTheAirTvShowState extends State<OnTheAirTvShow> {
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Text(
-                  '${widget.onTheAirModel!.results[index].name}',
+                  '${widget.onTheAirModel?.results[index].name}',
                   style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
