@@ -23,7 +23,7 @@ class _TopRateMovieState extends State<TopRateMovie> {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         shrinkWrap: true,
-        itemCount: widget.topRateMovieModel?.results.length,
+        itemCount: widget.topRateMovieModel?.results?.length,
         itemBuilder: (context, index) {
           return InkWell(
             onTap: () {
@@ -31,7 +31,7 @@ class _TopRateMovieState extends State<TopRateMovie> {
                 context,
                 MaterialPageRoute(
                     builder: (context) => DetailMoviePage(
-                        movieId: widget.topRateMovieModel?.results[index].id)),
+                        movieId: widget.topRateMovieModel?.results?[index].id)),
               );
             },
             child: Container(
@@ -41,7 +41,7 @@ class _TopRateMovieState extends State<TopRateMovie> {
                 borderRadius: BorderRadius.circular(12),
                 image: DecorationImage(
                   image: NetworkImage(
-                      '${imageURl}${widget.topRateMovieModel?.results[index].posterPath}'),
+                      '${imageURl}${widget.topRateMovieModel?.results?[index].posterPath}'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -49,7 +49,7 @@ class _TopRateMovieState extends State<TopRateMovie> {
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Text(
-                  '${widget.topRateMovieModel?.results[index].title}',
+                  '${widget.topRateMovieModel?.results?[index].title}',
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,

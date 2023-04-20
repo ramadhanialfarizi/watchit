@@ -22,7 +22,7 @@ class TvShowProvider extends ChangeNotifier {
       state = ResultState.loading;
       final source = await _tvShowRepository.getOnTheAirTvShow();
       notifyListeners();
-      if (source.results.isEmpty) {
+      if (source.results!.isEmpty) {
         state = ResultState.noData;
         notifyListeners();
       } else {
@@ -41,7 +41,7 @@ class TvShowProvider extends ChangeNotifier {
       state = ResultState.loading;
       final source = await _tvShowRepository.getAiringTodayTvShow();
       notifyListeners();
-      if (source.results.isEmpty) {
+      if (source.results!.isEmpty) {
         state = ResultState.noData;
         notifyListeners();
       } else {
@@ -60,7 +60,7 @@ class TvShowProvider extends ChangeNotifier {
       state = ResultState.loading;
       final source = await _tvShowRepository.getTopRatedTvShow();
       notifyListeners();
-      if (source.results.isEmpty) {
+      if (source.results!.isEmpty) {
         state = ResultState.noData;
         notifyListeners();
       } else {
@@ -79,7 +79,7 @@ class TvShowProvider extends ChangeNotifier {
       state = ResultState.loading;
       final source = await _tvShowRepository.getPopularTvShow();
       notifyListeners();
-      if (source.results.isEmpty) {
+      if (source.results!.isEmpty) {
         state = ResultState.noData;
         notifyListeners();
       } else {

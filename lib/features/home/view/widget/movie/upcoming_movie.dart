@@ -22,7 +22,7 @@ class _UpcomingMovieState extends State<UpcomingMovie> {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         shrinkWrap: true,
-        itemCount: widget.upcomingMovieModel?.results.length,
+        itemCount: widget.upcomingMovieModel?.results?.length,
         itemBuilder: (context, index) {
           return InkWell(
             onTap: () {
@@ -30,7 +30,8 @@ class _UpcomingMovieState extends State<UpcomingMovie> {
                 context,
                 MaterialPageRoute(
                     builder: (context) => DetailMoviePage(
-                        movieId: widget.upcomingMovieModel?.results[index].id)),
+                        movieId:
+                            widget.upcomingMovieModel?.results?[index].id)),
               );
             },
             child: Container(
@@ -40,7 +41,7 @@ class _UpcomingMovieState extends State<UpcomingMovie> {
                 borderRadius: BorderRadius.circular(12),
                 image: DecorationImage(
                   image: NetworkImage(
-                      '$imageURl${widget.upcomingMovieModel?.results[index].posterPath}'),
+                      '$imageURl${widget.upcomingMovieModel?.results?[index].posterPath}'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -48,7 +49,8 @@ class _UpcomingMovieState extends State<UpcomingMovie> {
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Text(
-                  widget.upcomingMovieModel!.results[index].title.toString(),
+                  widget.upcomingMovieModel!.results?[index].title.toString() ??
+                      'title',
                   style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,

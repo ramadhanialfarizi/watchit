@@ -22,7 +22,7 @@ class _PopularTvShowState extends State<PopularTvShow> {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         shrinkWrap: true,
-        itemCount: widget.popularTvShowModel?.results.length,
+        itemCount: widget.popularTvShowModel?.results?.length,
         itemBuilder: (context, index) {
           return InkWell(
             onTap: () {
@@ -30,7 +30,8 @@ class _PopularTvShowState extends State<PopularTvShow> {
                   context,
                   MaterialPageRoute(
                       builder: (context) => DetailTvShowPage(
-                          tvId: widget.popularTvShowModel?.results[index].id)));
+                          tvId:
+                              widget.popularTvShowModel?.results?[index].id)));
             },
             child: Container(
               margin: const EdgeInsets.only(right: 12),
@@ -39,7 +40,7 @@ class _PopularTvShowState extends State<PopularTvShow> {
                 borderRadius: BorderRadius.circular(12),
                 image: DecorationImage(
                   image: NetworkImage(
-                      '${imageURl}${widget.popularTvShowModel?.results[index].posterPath}'),
+                      '${imageURl}${widget.popularTvShowModel?.results?[index].posterPath}'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -47,7 +48,7 @@ class _PopularTvShowState extends State<PopularTvShow> {
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Text(
-                  '${widget.popularTvShowModel?.results[index].name}',
+                  '${widget.popularTvShowModel?.results?[index].name}',
                   style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,

@@ -22,7 +22,7 @@ class _OnTheAirTvShowState extends State<OnTheAirTvShow> {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         shrinkWrap: true,
-        itemCount: widget.onTheAirModel?.results.length,
+        itemCount: widget.onTheAirModel?.results?.length,
         itemBuilder: (context, index) {
           return InkWell(
             onTap: () {
@@ -30,7 +30,7 @@ class _OnTheAirTvShowState extends State<OnTheAirTvShow> {
                   context,
                   MaterialPageRoute(
                       builder: (context) => DetailTvShowPage(
-                          tvId: widget.onTheAirModel?.results[index].id)));
+                          tvId: widget.onTheAirModel?.results?[index].id)));
             },
             child: Container(
               margin: const EdgeInsets.only(right: 12),
@@ -39,7 +39,7 @@ class _OnTheAirTvShowState extends State<OnTheAirTvShow> {
                 borderRadius: BorderRadius.circular(12),
                 image: DecorationImage(
                   image: NetworkImage(
-                      '${imageURl}${widget.onTheAirModel?.results[index].posterPath}'),
+                      '${imageURl}${widget.onTheAirModel?.results?[index].posterPath}'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -47,7 +47,7 @@ class _OnTheAirTvShowState extends State<OnTheAirTvShow> {
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Text(
-                  '${widget.onTheAirModel?.results[index].name}',
+                  '${widget.onTheAirModel?.results?[index].name}',
                   style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,

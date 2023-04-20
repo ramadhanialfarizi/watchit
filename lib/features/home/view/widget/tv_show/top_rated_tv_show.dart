@@ -22,7 +22,7 @@ class _TopRatedTvShowState extends State<TopRatedTvShow> {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         shrinkWrap: true,
-        itemCount: widget.topRatedTvShowModel?.results.length,
+        itemCount: widget.topRatedTvShowModel?.results?.length,
         itemBuilder: (context, index) {
           return InkWell(
             onTap: () {
@@ -31,7 +31,7 @@ class _TopRatedTvShowState extends State<TopRatedTvShow> {
                   MaterialPageRoute(
                       builder: (context) => DetailTvShowPage(
                           tvId:
-                              widget.topRatedTvShowModel?.results[index].id)));
+                              widget.topRatedTvShowModel?.results?[index].id)));
             },
             child: Container(
               margin: const EdgeInsets.only(right: 12),
@@ -40,7 +40,7 @@ class _TopRatedTvShowState extends State<TopRatedTvShow> {
                 borderRadius: BorderRadius.circular(12),
                 image: DecorationImage(
                   image: NetworkImage(
-                      '${imageURl}${widget.topRatedTvShowModel?.results[index].posterPath}'),
+                      '${imageURl}${widget.topRatedTvShowModel?.results?[index].posterPath}'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -48,7 +48,7 @@ class _TopRatedTvShowState extends State<TopRatedTvShow> {
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Text(
-                  '${widget.topRatedTvShowModel?.results[index].name}',
+                  '${widget.topRatedTvShowModel?.results?[index].name}',
                   style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,

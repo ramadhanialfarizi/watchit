@@ -22,7 +22,7 @@ class _NowPlayingMovieState extends State<NowPlayingMovie> {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         shrinkWrap: true,
-        itemCount: widget.nowPlayingMovieModel?.results.length,
+        itemCount: widget.nowPlayingMovieModel?.results?.length,
         itemBuilder: (context, index) {
           return InkWell(
             onTap: () {
@@ -31,7 +31,7 @@ class _NowPlayingMovieState extends State<NowPlayingMovie> {
                 MaterialPageRoute(
                     builder: (context) => DetailMoviePage(
                         movieId:
-                            widget.nowPlayingMovieModel?.results[index].id)),
+                            widget.nowPlayingMovieModel?.results?[index].id)),
               );
             },
             child: Container(
@@ -41,7 +41,7 @@ class _NowPlayingMovieState extends State<NowPlayingMovie> {
                 borderRadius: BorderRadius.circular(12),
                 image: DecorationImage(
                   image: NetworkImage(
-                      '$imageURl${widget.nowPlayingMovieModel?.results[index].posterPath}'),
+                      '$imageURl${widget.nowPlayingMovieModel?.results?[index].posterPath}'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -49,7 +49,7 @@ class _NowPlayingMovieState extends State<NowPlayingMovie> {
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Text(
-                  '${widget.nowPlayingMovieModel?.results[index].title}',
+                  '${widget.nowPlayingMovieModel?.results?[index].title}',
                   style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,

@@ -28,7 +28,7 @@ class MovieProvider extends ChangeNotifier {
       state = ResultState.loading;
       final source = await _remoteDataSourceRepository.getTopRateMovie();
       notifyListeners();
-      if (source.results.isEmpty) {
+      if (source.results!.isEmpty) {
         state = ResultState.noData;
         notifyListeners();
       } else {
@@ -48,7 +48,7 @@ class MovieProvider extends ChangeNotifier {
       final source = await _remoteDataSourceRepository.getPopularMovie();
       notifyListeners();
 
-      if (source.results.isEmpty) {
+      if (source.results!.isEmpty) {
         state = ResultState.noData;
         notifyListeners();
       } else {
@@ -67,7 +67,7 @@ class MovieProvider extends ChangeNotifier {
       state = ResultState.loading;
       final source = await _remoteDataSourceRepository.getNowPlayingMovie();
       notifyListeners();
-      if (source.results.isEmpty) {
+      if (source.results!.isEmpty) {
         state = ResultState.noData;
         notifyListeners();
       } else {
@@ -86,7 +86,7 @@ class MovieProvider extends ChangeNotifier {
       state = ResultState.loading;
       final source = await _remoteDataSourceRepository.getUpcomingMovie();
       notifyListeners();
-      if (source.results.isEmpty) {
+      if (source.results!.isEmpty) {
         state = ResultState.noData;
         notifyListeners();
       } else {
