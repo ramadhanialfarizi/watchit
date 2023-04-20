@@ -8,6 +8,7 @@ import 'package:movie_app/features/detail/view_model/movie/detail_movie_provider
 import 'package:movie_app/features/detail/view_model/tv_show/detail_tv_show_provider.dart';
 import 'package:movie_app/features/home/view_model/movie/movie_provider.dart';
 import 'package:movie_app/features/home/view_model/tv_show/tv_show_provider.dart';
+import 'package:movie_app/features/people/view_model/people_provider.dart';
 import 'package:movie_app/firebase_options.dart';
 import 'package:provider/provider.dart';
 
@@ -36,6 +37,9 @@ void main() async {
         ),
         ChangeNotifierProvider(
           create: (context) => DetailTvShowProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => PeopleProvider(),
         ),
       ],
       child: const MyApp(),
