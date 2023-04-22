@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/features/detail/model/people/more_people_model.dart';
 
-import '../../../../core/utils/env.dart';
-import '../detail_people_page.dart';
+import '../../../../../core/utils/env.dart';
+import '../../detail_people_page.dart';
 
 class MorePeople extends StatefulWidget {
   const MorePeople({super.key, required this.morePeopleModel});

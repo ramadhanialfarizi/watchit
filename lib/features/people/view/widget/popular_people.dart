@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/core/utils/env.dart';
 import 'package:movie_app/features/people/model/popular_people_model.dart';
 
+import '../../../detail/view/detail_people_page.dart';
+
 class PopularPeople extends StatefulWidget {
   const PopularPeople({super.key, required this.popularPeopleModel});
 
@@ -28,13 +30,15 @@ class _PopularPeopleState extends State<PopularPeople> {
       itemBuilder: (context, index) {
         return InkWell(
           onTap: () {
-            // Navigator.push(
-            //   context,
-            //   MaterialPageRoute(
-            //       builder: (context) => DetailMoviePage(
-            //           movieId:
-            //               widget.popularPeopleModel?.results?[index].id)),
-            // );
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => DetailPeoplePage(
+                        peopleId: widget.popularPeopleModel?.results?[index].id,
+                        peopleName:
+                            widget.popularPeopleModel?.results?[index].name,
+                      )),
+            );
           },
           child: Container(
             //margin: const EdgeInsets.only(right: 12),

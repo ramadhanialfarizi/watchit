@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/features/detail/model/tv_show/detail_tv_show_model.dart';
 
-import '../../../../core/global_widget/line.dart';
-import '../../../../core/utils/env.dart';
+import '../../../../../core/global_widget/line.dart';
+import '../../../../../core/utils/env.dart';
 
 class DetailTvShow extends StatefulWidget {
   const DetailTvShow({super.key, required this.detailTvShowModel});

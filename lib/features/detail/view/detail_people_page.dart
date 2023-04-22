@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/features/detail/view/widget/detail_people.dart';
+import 'package:movie_app/features/detail/view/widget/people/detail_people.dart';
 import 'package:movie_app/features/detail/view_model/people/detail_people_provider.dart';
 import 'package:provider/provider.dart';
 

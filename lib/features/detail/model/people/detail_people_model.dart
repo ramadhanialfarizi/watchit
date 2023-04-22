@@ -19,7 +19,7 @@ class DetailPeopleModel {
   bool? adult;
   List<String>? alsoKnownAs;
   String? biography;
-  DateTime? birthday;
+  String? birthday;
   dynamic deathday;
   int? gender;
   String? homepage;
@@ -38,8 +38,7 @@ class DetailPeopleModel {
             ? []
             : List<String>.from(json["also_known_as"]!.map((x) => x)),
         biography: json["biography"],
-        birthday:
-            json["birthday"] == null ? null : DateTime.parse(json["birthday"]),
+        birthday: json["birthday"] == null ? null : json["birthday"],
         deathday: json["deathday"],
         gender: json["gender"],
         homepage: json["homepage"],
@@ -58,8 +57,7 @@ class DetailPeopleModel {
             ? []
             : List<dynamic>.from(alsoKnownAs!.map((x) => x)),
         "biography": biography,
-        "birthday":
-            "${birthday!.year.toString().padLeft(4, '0')}-${birthday!.month.toString().padLeft(2, '0')}-${birthday!.day.toString().padLeft(2, '0')}",
+        "birthday": birthday,
         "deathday": deathday,
         "gender": gender,
         "homepage": homepage,

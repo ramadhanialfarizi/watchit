@@ -2,15 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/core/global_widget/empty_data.dart';
 import 'package:movie_app/core/global_widget/line.dart';
 import 'package:movie_app/features/detail/model/people/detail_people_model.dart';
-import 'package:movie_app/features/detail/view/widget/more_people.dart';
+
 import 'package:movie_app/features/detail/view_model/people/detail_people_provider.dart';
 import 'package:movie_app/features/people/view_model/people_provider.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../core/global_widget/error.dart';
-import '../../../../core/utils/enum.dart';
-import '../../../../core/utils/env.dart';
-import '../../view_model/tv_show/detail_tv_show_provider.dart';
+import '../../../../../core/global_widget/error.dart';
+import '../../../../../core/utils/enum.dart';
+import '../../../../../core/utils/env.dart';
+
+import 'full_screen_images.dart';
+import 'more_people.dart';
 
 class DetailPeople extends StatefulWidget {
   const DetailPeople({super.key, required this.detailPeopleModel});
@@ -22,6 +24,8 @@ class DetailPeople extends StatefulWidget {
 }
 
 class _DetailPeopleState extends State<DetailPeople> {
+  //List gender = ['female', 'male'];
+
   @override
   void initState() {
     getMorePeople();
@@ -43,18 +47,30 @@ class _DetailPeopleState extends State<DetailPeople> {
             crossAxisAlignment: CrossAxisAlignment.center,
             //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Container(
-                width: 100,
-                height: 100,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(
-                    color: Colors.transparent,
-                  ),
-                  image: DecorationImage(
-                    image: NetworkImage(
-                        '$imageURl${widget.detailPeopleModel?.profilePath}'),
-                    fit: BoxFit.cover,
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => FullScreenImages(
+                          imageUrl:
+                              '$imageURl${widget.detailPeopleModel?.profilePath}'),
+                    ),
+                  );
+                },
+                child: Container(
+                  width: 100,
+                  height: 100,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: Colors.transparent,
+                    ),
+                    image: DecorationImage(
+                      image: NetworkImage(
+                          '$imageURl${widget.detailPeopleModel?.profilePath}'),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
@@ -94,7 +110,7 @@ class _DetailPeopleState extends State<DetailPeople> {
                     const SizedBox(
                       height: 8,
                     ),
-                    Text('Department')
+                    const Text('Role')
                   ],
                 ),
               ),
@@ -126,6 +142,61 @@ class _DetailPeopleState extends State<DetailPeople> {
                 style: TextStyle(fontSize: 13),
                 textAlign: TextAlign.start,
               ),
+            ],
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          Row(
+            //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              const Icon(
+                Icons.pin_drop_sharp,
+                color: Color(0xFFF44E42),
+              ),
+              const SizedBox(
+                width: 16,
+              ),
+              Text(
+                widget.detailPeopleModel?.placeOfBirth ?? '',
+                style: TextStyle(fontSize: 13),
+                textAlign: TextAlign.start,
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          Row(
+            //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              if (widget.detailPeopleModel?.gender == 2) ...[
+                const Icon(
+                  Icons.male,
+                  color: Color(0xFFF44E42),
+                ),
+                const SizedBox(
+                  width: 16,
+                ),
+                const Text(
+                  'Male',
+                  style: TextStyle(fontSize: 13),
+                  textAlign: TextAlign.start,
+                ),
+              ] else ...[
+                const Icon(
+                  Icons.female,
+                  color: Color(0xFFF44E42),
+                ),
+                const SizedBox(
+                  width: 16,
+                ),
+                const Text(
+                  'Female',
+                  style: TextStyle(fontSize: 13),
+                  textAlign: TextAlign.start,
+                ),
+              ]
             ],
           ),
           const SizedBox(

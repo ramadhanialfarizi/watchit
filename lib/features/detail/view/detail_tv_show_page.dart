@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/core/global_widget/empty_data.dart';
 import 'package:movie_app/core/global_widget/error.dart';
 import 'package:movie_app/core/utils/enum.dart';
-import 'package:movie_app/features/detail/view/widget/detail_tv_show.dart';
+import 'package:movie_app/features/detail/view/widget/tv_show/detail_tv_show.dart';
 import 'package:movie_app/features/detail/view_model/tv_show/detail_tv_show_provider.dart';
 import 'package:movie_app/features/home/view_model/tv_show/tv_show_provider.dart';
 import 'package:provider/provider.dart';

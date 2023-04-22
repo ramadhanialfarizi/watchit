@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/core/utils/enum.dart';
-import 'package:movie_app/features/detail/view/widget/detail_movie.dart';
+import 'package:movie_app/features/detail/view/widget/movie/detail_movie.dart';
 import 'package:movie_app/features/detail/view_model/movie/detail_movie_provider.dart';
 import 'package:provider/provider.dart';
 
