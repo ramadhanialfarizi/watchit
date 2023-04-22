@@ -120,7 +120,7 @@ class _DetailTvShowState extends State<DetailTvShow> {
                           widget.detailTvShowModel!.spokenLanguages?[index]
                                   .englishName ??
                               '',
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontWeight: FontWeight.bold, color: Colors.white),
                         ),
                       ),

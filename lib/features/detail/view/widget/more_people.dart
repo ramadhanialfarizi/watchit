@@ -1,51 +1,50 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/features/detail/view/detail_people_page.dart';
+import 'package:movie_app/features/detail/model/people/more_people_model.dart';
 
 import '../../../../core/utils/env.dart';
-import '../../model/popular_people_model.dart';
+import '../detail_people_page.dart';
 
-class TopActors extends StatefulWidget {
-  const TopActors({super.key, required this.popularPeopleModel});
+class MorePeople extends StatefulWidget {
+  const MorePeople({super.key, required this.morePeopleModel});
 
-  final PopularPeopleModel? popularPeopleModel;
+  final MorePeopleModel? morePeopleModel;
 
   @override
-  State<TopActors> createState() => _TopActorsState();
+  State<MorePeople> createState() => _MorePeopleState();
 }
 
-class _TopActorsState extends State<TopActors> {
+class _MorePeopleState extends State<MorePeople> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 245,
+      height: 185,
       width: double.infinity,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         shrinkWrap: true,
-        itemCount: widget.popularPeopleModel?.results?.length,
+        itemCount: widget.morePeopleModel?.results?.length,
         itemBuilder: (context, index) {
           return InkWell(
             onTap: () {
-              Navigator.push(
+              Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
                     builder: (context) => DetailPeoplePage(
-                          peopleId:
-                              widget.popularPeopleModel?.results?[index].id,
+                          peopleId: widget.morePeopleModel?.results?[index].id,
                           peopleName:
-                              widget.popularPeopleModel?.results?[index].name,
+                              widget.morePeopleModel?.results?[index].name,
                         )),
               );
             },
             child: Container(
               margin: const EdgeInsets.only(right: 12),
               width: 150,
-              height: 90,
+              //height: 67,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
                 image: DecorationImage(
                   image: NetworkImage(
-                      '$imageURl${widget.popularPeopleModel?.results?[index].profilePath}'),
+                      '$imageURl${widget.morePeopleModel?.results?[index].profilePath}'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -56,18 +55,11 @@ class _TopActorsState extends State<TopActors> {
                   decoration: const BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                     color: Colors.white,
-                    // boxShadow: [
-                    //   BoxShadow(
-                    //       color: Color.fromARGB(255, 255, 221, 221),
-                    //       blurRadius: 8,
-                    //       //offset: Offset(4, 8),
-                    //       spreadRadius: 0.5),
-                    // ],
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
-                      '${widget.popularPeopleModel?.results?[index].name}',
+                      '${widget.morePeopleModel?.results?[index].name}',
                       style: const TextStyle(
                         color: Color(0xFFF44E42),
                         fontWeight: FontWeight.bold,

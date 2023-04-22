@@ -55,13 +55,6 @@ class _PopularPeopleState extends State<PopularPeople> {
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(10)),
                   color: Colors.white,
-                  // boxShadow: [
-                  //   BoxShadow(
-                  //       color: Color.fromARGB(255, 255, 221, 221),
-                  //       blurRadius: 8,
-                  //       //offset: Offset(4, 8),
-                  //       spreadRadius: 0.5),
-                  // ],
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),

@@ -16,12 +16,12 @@ class PeopleDataSourceImpl implements PeopleRepository {
         },
       );
       if (response.statusCode == 200) {
-        print(response.data);
+        //print(response.data);
         var result = PopularPeopleModel.fromJson(response.data);
 
         return result;
       } else {
-        print('error ${response.statusCode}');
+        // print('error ${response.statusCode}');
         throw Exception();
       }
     } catch (e) {
