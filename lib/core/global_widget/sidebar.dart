@@ -72,7 +72,7 @@ class _SidebarState extends State<Sidebar> {
             ),
             onTap: () {
               // Update the state of the app.
-              //Navigator.of(context).pushReplacementNamed('/favorite');
+              Navigator.of(context).pushReplacementNamed('/favorite');
             },
           ),
           ListTile(

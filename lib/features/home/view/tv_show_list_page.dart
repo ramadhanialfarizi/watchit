@@ -19,8 +19,6 @@ class TvShowListPages extends StatefulWidget {
 }
 
 class _TvShowListPagesState extends State<TvShowListPages> {
-  String? status = 'tvshow';
-
   @override
   void initState() {
     getOnTheAirTvShow();

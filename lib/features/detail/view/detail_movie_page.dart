@@ -17,6 +17,8 @@ class DetailMoviePage extends StatefulWidget {
 }
 
 class _DetailMoviePageState extends State<DetailMoviePage> {
+  final String? type = 'movie';
+
   @override
   void initState() {
     getDetailMoviebyId();
@@ -49,6 +51,7 @@ class _DetailMoviePageState extends State<DetailMoviePage> {
                   );
                 } else if (detailMovieValue.state == ResultState.hasData) {
                   return DetailMovie(
+                      type: type,
                       detailMovieModel: detailMovieValue.detailMovieModel);
                 } else if (detailMovieValue.state == ResultState.noData) {
                   return const EmptyData();

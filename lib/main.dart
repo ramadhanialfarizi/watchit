@@ -7,6 +7,7 @@ import 'package:movie_app/features/authentication/view_model/signup_provider.dar
 import 'package:movie_app/features/detail/view_model/movie/detail_movie_provider.dart';
 import 'package:movie_app/features/detail/view_model/people/detail_people_provider.dart';
 import 'package:movie_app/features/detail/view_model/tv_show/detail_tv_show_provider.dart';
+import 'package:movie_app/features/favorite/view_model/favorite_provider.dart';
 import 'package:movie_app/features/home/view_model/movie/movie_provider.dart';
 import 'package:movie_app/features/home/view_model/tv_show/tv_show_provider.dart';
 import 'package:movie_app/features/people/view_model/people_provider.dart';
@@ -44,6 +45,9 @@ void main() async {
         ),
         ChangeNotifierProvider(
           create: (context) => DetailPeopleProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => FavoriteProvider(),
         ),
       ],
       child: const MyApp(),

@@ -1,19 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/features/detail/model/tv_show/detail_tv_show_model.dart';
+import 'package:movie_app/features/detail/view_model/tv_show/detail_tv_show_provider.dart';
+import 'package:movie_app/features/favorite/model/tv_show_favorite_model.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../../core/global_widget/line.dart';
 import '../../../../../core/utils/env.dart';
 
 class DetailTvShow extends StatefulWidget {
-  const DetailTvShow({super.key, required this.detailTvShowModel});
+  const DetailTvShow(
+      {super.key, required this.detailTvShowModel, required this.type});
 
   final DetailTvShowModel? detailTvShowModel;
+  final String? type;
 
   @override
   State<DetailTvShow> createState() => _DetailTvShowState();
 }
 
 class _DetailTvShowState extends State<DetailTvShow> {
+  void addFavorite() {
+    var favoriteTVshow = TvShowFavoriteModel(
+      id: widget.detailTvShowModel?.id,
+      title: widget.detailTvShowModel?.name,
+      imagePath: widget.detailTvShowModel?.posterPath,
+      type: widget.type,
+    );
+
+    context.read<DetailTvShowProvider>().addTvShowFavorite(favoriteTVshow);
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('add to favorite!!'),
+        duration: Duration(milliseconds: 800),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -60,13 +83,38 @@ class _DetailTvShowState extends State<DetailTvShow> {
                         padding: const EdgeInsets.all(10),
                         child: Text(
                           widget.detailTvShowModel!.genres?[index].name ?? '',
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontWeight: FontWeight.bold, color: Colors.white),
                         ),
                       ),
                     );
                   },
                 ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              OutlinedButton.icon(
+                onPressed: addFavorite,
+                style: ButtonStyle(
+                  side: MaterialStateProperty.all(
+                    const BorderSide(
+                      color: Color(0xFFF44E42),
+                      width: 1.0,
+                    ),
+                  ),
+                ),
+                icon: const Icon(
+                  Icons.favorite,
+                  color: Color(0xFFF44E42),
+                ),
+                label: const Text(
+                  'Add to favorite',
+                  style: TextStyle(color: const Color(0xFFF44E42)),
+                ),
+              ),
+              const SizedBox(
+                height: 30,
               ),
               const SizedBox(
                 height: 20,

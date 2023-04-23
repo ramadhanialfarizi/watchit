@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/features/authentication/view/signin_page.dart';
 import 'package:movie_app/features/authentication/view/signup_page.dart';
+import 'package:movie_app/features/favorite/view/favorite_page.dart';
 import 'package:movie_app/features/home/view/home_page.dart';
 import 'package:movie_app/features/onboarding/view/splash_screen.dart';
 import 'package:movie_app/features/people/view/people_page.dart';
@@ -27,6 +28,10 @@ class AppRoutes {
       case '/people':
         return MaterialPageRoute(
           builder: (context) => const PeoplePage(),
+        );
+      case '/favorite':
+        return MaterialPageRoute(
+          builder: (context) => const FavoritePage(),
         );
     }
     return null;

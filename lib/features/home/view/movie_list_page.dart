@@ -19,8 +19,6 @@ class MovieListPages extends StatefulWidget {
 }
 
 class _MovieListPagesState extends State<MovieListPages> {
-  String? status = 'movie';
-
   @override
   void initState() {
     getTopRatedMovie();

@@ -2,19 +2,43 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/core/global_widget/line.dart';
 import 'package:movie_app/core/utils/env.dart';
 import 'package:movie_app/features/detail/model/movie/detail_movie_model.dart';
+import 'package:movie_app/features/detail/view_model/movie/detail_movie_provider.dart';
+import 'package:movie_app/features/favorite/model/movie_favorite_model.dart';
+import 'package:provider/provider.dart';
 
 class DetailMovie extends StatefulWidget {
-  const DetailMovie({super.key, required this.detailMovieModel});
+  const DetailMovie(
+      {super.key, required this.detailMovieModel, required this.type});
 
   final DetailMovieModel? detailMovieModel;
+  final String? type;
 
   @override
   State<DetailMovie> createState() => _DetailMovieState();
 }
 
 class _DetailMovieState extends State<DetailMovie> {
+  void addFavorite() {
+    var favoriteMovie = MovieFavoriteModel(
+      id: widget.detailMovieModel?.id,
+      imagePath: widget.detailMovieModel?.posterPath,
+      title: widget.detailMovieModel?.title,
+      type: widget.type,
+    );
+
+    context.read<DetailMovieProvider>().addFavoriteMovie(favoriteMovie);
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('add to favorite!!'),
+        duration: Duration(milliseconds: 800),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    //print(widget.type);
     return Column(
       children: [
         ClipRRect(
@@ -69,6 +93,28 @@ class _DetailMovieState extends State<DetailMovie> {
               ),
               const SizedBox(
                 height: 20,
+              ),
+              OutlinedButton.icon(
+                onPressed: addFavorite,
+                style: ButtonStyle(
+                  side: MaterialStateProperty.all(
+                    const BorderSide(
+                      color: Color(0xFFF44E42),
+                      width: 1.0,
+                    ),
+                  ),
+                ),
+                icon: const Icon(
+                  Icons.favorite,
+                  color: Color(0xFFF44E42),
+                ),
+                label: const Text(
+                  'Add to favorite',
+                  style: TextStyle(color: Color(0xFFF44E42)),
+                ),
+              ),
+              const SizedBox(
+                height: 30,
               ),
               const Line(),
               const SizedBox(
