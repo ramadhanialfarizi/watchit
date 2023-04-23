@@ -110,14 +110,11 @@ class _DetailTvShowState extends State<DetailTvShow> {
                 ),
                 label: const Text(
                   'Add to favorite',
-                  style: TextStyle(color: const Color(0xFFF44E42)),
+                  style: TextStyle(color: Color(0xFFF44E42)),
                 ),
               ),
               const SizedBox(
                 height: 30,
-              ),
-              const SizedBox(
-                height: 20,
               ),
               const Line(),
               const SizedBox(
