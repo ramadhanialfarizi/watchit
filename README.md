@@ -18,6 +18,9 @@ mobile app project to show a movie catalogue
 - Provider
 - Email Validator
 
+[reference for flutter](https://docs.flutter.dev/)
+[reference for flutter package](https://pub.dev/)
+
 
 ### Firebase tech Used
 
@@ -25,6 +28,16 @@ mobile app project to show a movie catalogue
 - Firebase Cloud Firestore
 
 [reference for flutter and firebase](https://firebase.flutter.dev/docs/overview/)
+
+
+### Running the project
+
+Clone this project into your local device
+
+```
+git clone 
+```
+
 
 This project is a starting point for a Flutter application.
 
