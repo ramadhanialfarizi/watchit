@@ -24,7 +24,7 @@ The Movie Database API
 - Provider
 - Email Validator
 
-[reference for flutter](https://docs.flutter.dev/)
+[reference for flutter](https://docs.flutter.dev/) \n
 [reference for flutter package](https://pub.dev/)
 
 
