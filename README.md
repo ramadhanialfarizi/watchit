@@ -4,11 +4,27 @@ mobile app project to show a movie catalogue
 
 ## Getting Started
 
-### Tech stack using
+### Tech stack used
 
 - Flutter
 - Firebase
 
+### Flutter Package Used
+
+- Cuppertino Icon
+- Firebase Core
+- Firebase Auth
+- Cloud Firestore
+- Provider
+- Email Validator
+
+
+### Firebase tech Used
+
+- Firebase Authentication
+- Firebase Cloud Firestore
+
+[reference for flutter and firebase](https://firebase.flutter.dev/docs/overview/)
 
 This project is a starting point for a Flutter application.
 
