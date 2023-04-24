@@ -4,6 +4,12 @@ mobile app project to show a movie catalogue
 
 ## Getting Started
 
+### API Reference
+
+The Movie Database API
+
+[API Reference](https://developers.themoviedb.org/3/getting-started/introduction)
+
 ### Tech stack used
 
 - Flutter
@@ -35,17 +41,13 @@ mobile app project to show a movie catalogue
 Clone this project into your local device
 
 ```
-git clone 
+git clone https://github.com/ramadhanialfarizi/watchit.git
 ```
 
+after that you must run pub get in your terminal to download the package into your local device
 
-This project is a starting point for a Flutter application.
+```
+flutter pub get
+```
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+after run flutter pub get, press f5 to debug the project.
