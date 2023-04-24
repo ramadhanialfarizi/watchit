@@ -10,10 +10,14 @@ The Movie Database API
 
 [API Reference](https://developers.themoviedb.org/3/getting-started/introduction)
 
+---
+
 ### Tech stack used
 
 - Flutter
 - Firebase
+
+---
 
 ### Flutter Package Used
 
