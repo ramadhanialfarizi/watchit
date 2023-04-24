@@ -32,6 +32,7 @@ The Movie Database API
 
 [reference for flutter package](https://pub.dev/)
 
+---
 
 ### Firebase tech Used
 
@@ -40,6 +41,7 @@ The Movie Database API
 
 [reference for flutter and firebase](https://firebase.flutter.dev/docs/overview/)
 
+---
 
 ### Running the project
 
