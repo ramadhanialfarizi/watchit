@@ -1,8 +1,11 @@
 # Watchit
 
-A new Flutter project.
+mobile app project to show a movie catalogue 
 
 ## Getting Started
+
+### Tech stack using
+
 
 This project is a starting point for a Flutter application.
 
