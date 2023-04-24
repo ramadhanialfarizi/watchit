@@ -6,6 +6,9 @@ mobile app project to show a movie catalogue
 
 ### Tech stack using
 
+- Flutter
+- Firebase
+
 
 This project is a starting point for a Flutter application.
 
